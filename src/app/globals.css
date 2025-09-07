@@ -5,6 +5,20 @@
     --foreground: #ededed;
 }
 
+a:hover,
+button:not(:disabled):hover,
+input[type='checkbox']:not(:disabled):hover,
+input[type='button']:not(:disabled):hover {
+    @apply cursor-pointer drop-shadow-stone-600/25 drop-shadow-xs;
+}
+
+a:active,
+button:not(:disabled):active,
+input[type='checkbox']:not(:disabled):active,
+input[type='button']:not(:disabled):active {
+    @apply cursor-pointer drop-shadow-stone-600/25 drop-shadow-xs;
+}
+
 body {
     background: var(--background);
     color: var(--foreground);
