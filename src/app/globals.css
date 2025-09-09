@@ -21,6 +21,24 @@ body {
     padding: 0;
 }
 
+html {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+
+.text-small {
+    @apply text-xs sm:text-sm;
+}
+
+.text-normal {
+    @apply text-sm sm:text-base lg:text-lg;
+}
+
+.text-large {
+    @apply text-base sm:text-lg lg:text-xl;
+}
+
 @theme inline {
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
@@ -46,4 +64,24 @@ body {
     body {
         @apply bg-background text-foreground;
     }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-stone-800;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-stone-400 rounded-md;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-stone-300/50 rounded-md;
+}
+
+::-webkit-scrollbar-thumb:active {
+    @apply bg-stone-400/50 rounded-md;
 }
