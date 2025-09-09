@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { FetchLoading } from 'fetch-loading'
-import fetchFeedItems from '@/api/fetchFeedItems'
+import { Badge } from '@/components/ui/badge'
 import {
     Card,
     CardContent,
@@ -11,6 +11,7 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card'
+import fetchFeedItems from '@/api/fetchFeedItems'
 
 const Feed = () => {
     const PAGE_SIZE = 10
@@ -68,7 +69,7 @@ const Feed = () => {
                                 <p>{item.body}</p>
                             </CardContent>
                             <CardFooter>
-                                <p>Post #{item.id}</p>
+                                <Badge variant="outline">Post #{item.id}</Badge>
                             </CardFooter>
                         </Card>
                     ))}
