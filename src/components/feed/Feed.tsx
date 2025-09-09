@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { FetchLoading } from 'fetch-loading'
 import { Badge } from '@/components/ui/badge'
 import {
@@ -12,31 +12,31 @@ import {
     CardTitle,
 } from '@/components/ui/card'
 import fetchFeedItems from '@/api/fetchFeedItems'
+import { FeedItemsType } from '@/types/types'
+import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
 
 const Feed = () => {
     const PAGE_SIZE = 10
     const nextPage = useRef<number>(1)
-    const [feedItems, setFeedItems] = useState<
-        Array<{
-            postId: number
-            id: number
-            name: string
-            email: string
-            body: string
-        }>
-    >([])
+    const [feedItems, setFeedItems] = useState<Array<FeedItemsType>>([])
     const [isLoading, setIsLoading] = useState(false)
 
-    const loadMore = async () => {
+    const loadMoreItems = useCallback(async () => {
         if (isLoading) return
         setIsLoading(true)
         await fetchFeedItems(nextPage, PAGE_SIZE, setFeedItems)
         setIsLoading(false)
-    }
+    }, [isLoading])
 
     useEffect(() => {
-        loadMore()
-    }, [])
+        const parsedStorageData = getItemFromSessionStorage()
+        setFeedItems(parsedStorageData?.feedItems || [])
+        nextPage.current = parsedStorageData?.nextPage || 1
+
+        if (!parsedStorageData?.feedItems?.length) {
+            loadMoreItems()
+        }
+    }, [loadMoreItems])
 
     useEffect(() => {
         const handleScroll = () => {
@@ -44,13 +44,13 @@ const Feed = () => {
                 window.innerHeight + window.scrollY >=
                 document.body.offsetHeight - 96
             ) {
-                loadMore()
+                loadMoreItems()
             }
         }
 
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
-    }, [isLoading])
+    }, [isLoading, loadMoreItems])
 
     return (
         <main
