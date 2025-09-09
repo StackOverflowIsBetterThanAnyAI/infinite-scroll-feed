@@ -1,19 +1,11 @@
 import { RefObject, SetStateAction } from 'react'
+import { FeedItemsType } from '@/types/types'
+import { setItemInSessionStorage } from '@/utils/setItemInSessionStorage'
 
 const fetchFeedItems = async (
     nextPage: RefObject<number>,
     PAGE_SIZE: number,
-    setFeedItems: (
-        value: SetStateAction<
-            {
-                postId: number
-                id: number
-                name: string
-                email: string
-                body: string
-            }[]
-        >
-    ) => void
+    setFeedItems: (value: SetStateAction<FeedItemsType[]>) => void
 ) => {
     try {
         const response = await fetch(
@@ -34,8 +26,13 @@ const fetchFeedItems = async (
             throw new Error('Received data was not ok')
         }
 
-        setFeedItems((prev) => [...prev, ...data])
-        nextPage.current++
+        setFeedItems((prevFeedItems) => {
+            const updatedFeedItems = [...prevFeedItems, ...data]
+            setItemInSessionStorage('feedItems', updatedFeedItems)
+            setItemInSessionStorage('nextPage', nextPage.current + 1)
+
+            return updatedFeedItems
+        })
     } catch (error: unknown) {
         console.error('An error occurred while fetching the photos.', error)
     }
