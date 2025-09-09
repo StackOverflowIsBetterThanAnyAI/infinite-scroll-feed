@@ -26,12 +26,16 @@ const fetchFeedItems = async (
             throw new Error('Received data was not ok')
         }
 
-        setFeedItems((prevFeedItems) => {
-            const updatedFeedItems = [...prevFeedItems, ...data]
-            setItemInSessionStorage('feedItems', updatedFeedItems)
+        setFeedItems((prev) => {
+            const merged = [...prev, ...data]
+            const unique = Array.from(
+                new Map(merged.map((item) => [item.id, item])).values()
+            )
+
+            setItemInSessionStorage('feedItems', unique)
             setItemInSessionStorage('nextPage', nextPage.current + 1)
 
-            return updatedFeedItems
+            return unique
         })
     } catch (error: unknown) {
         console.error('An error occurred while fetching the photos.', error)
