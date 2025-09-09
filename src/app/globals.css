@@ -39,6 +39,10 @@ html {
     @apply text-base sm:text-lg lg:text-xl;
 }
 
+.text-very-large {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+}
+
 @theme inline {
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
