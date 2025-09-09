@@ -1,4 +1,4 @@
-export const setItemInSessionStorage = (key: string, value: any) => {
+export const setItemInSessionStorage = (key: string, value: unknown) => {
     const storage = sessionStorage.getItem('infinite-scroll-feed')
     const parsedTracker = storage ? JSON.parse(storage) : {}
     parsedTracker[key] = value
