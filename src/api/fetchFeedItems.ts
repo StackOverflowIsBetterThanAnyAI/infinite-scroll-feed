@@ -33,6 +33,7 @@ const fetchFeedItems = async (
             console.error('An error occurred while fetching the photos.')
             throw new Error('Received data was not ok')
         }
+
         setFeedItems((prev) => [...prev, ...data])
         nextPage.current++
     } catch (error: unknown) {
