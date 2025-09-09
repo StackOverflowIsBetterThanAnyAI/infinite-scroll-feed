@@ -14,6 +14,7 @@ import {
 import fetchFeedItems from '@/api/fetchFeedItems'
 import { FeedItemsType } from '@/types/types'
 import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
+import { getWindowScrollY } from '@/utils/getWindowScrollY'
 
 const Feed = () => {
     const PAGE_SIZE = 10
@@ -35,6 +36,8 @@ const Feed = () => {
 
         if (!parsedStorageData?.feedItems?.length) {
             loadMoreItems()
+        } else {
+            getWindowScrollY()
         }
     }, [loadMoreItems])
 
