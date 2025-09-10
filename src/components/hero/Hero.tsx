@@ -56,7 +56,7 @@ const Hero = () => {
                         routes from JSON Placeholder to fetch and display
                         comments along with user information in a card format.
                     </p>
-                    <p className="text-center p-4 mt-4 bg-stone-300 rounded-lg">
+                    <p className="text-center p-4 mt-4 bg-stone-400/60  rounded-lg">
                         Check out the top 10 posts of the week right now!
                         <Button
                             asChild
@@ -74,7 +74,7 @@ const Hero = () => {
                         </Button>
                     </p>
                 </div>
-                <div className="hidden min-[864px]:flex flex-col gap-2 self-center justify-center items-center p-4 h-fit bg-stone-300 outline-4 outline-stone-600 rounded-lg">
+                <div className="hidden min-[864px]:flex flex-col gap-2 self-center justify-center items-center p-4 h-fit bg-stone-400/60  outline-4 outline-stone-600 rounded-lg">
                     <Image
                         src={heroLogo}
                         alt="Infinite Scroll Feed Logo"

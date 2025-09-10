@@ -70,7 +70,7 @@ const Feed = () => {
             className="w-full flex flex-col items-center gap-8 lg:gap-12 max-w-7xl relative isolate bg-stone-300 text-stone-950 lg:rounded-lg p-3 sm:p-4 lg:p-6
             drop-shadow-stone-900 drop-shadow-sm"
         >
-            <div className="w-full flex flex-col items-center px-14 sm:px-16 py-6 bg-stone-400 rounded-lg shadow-md shadow-stone-600">
+            <div className="w-full flex flex-col items-center px-14 sm:px-16 py-6 bg-stone-400/60 rounded-lg shadow-md shadow-stone-500">
                 <div className="w-full flex flex-col gap-4 max-w-3xl">
                     <h2 className="self-start text-very-large font-semibold underline">
                         Top 10 Posts of the Week
