@@ -66,14 +66,14 @@ const Feed = () => {
 
     return (
         <main
-            className="w-full flex flex-col items-center gap-4 max-w-7xl relative isolate bg-stone-300 text-stone-950 lg:rounded-lg p-3 sm:p-4 lg:p-6
+            className="w-full flex flex-col items-center gap-8 lg:gap-12 max-w-7xl relative isolate bg-stone-300 text-stone-950 lg:rounded-lg p-3 sm:p-4 lg:p-6
             drop-shadow-stone-900 drop-shadow-sm"
         >
             {feedItems.length > 0 ? (
                 <>
-                    <div className="w-full flex flex-col items-center mb-4 px-16 py-6 bg-stone-500 rounded-lg shadow-md shadow-stone-600">
+                    <div className="w-full flex flex-col items-center px-16 py-6 bg-stone-400 rounded-lg shadow-md shadow-stone-600">
                         <div className="w-full flex flex-col gap-4 max-w-3xl">
-                            <h2 className="self-start text-very-large font-semibold text-zinc-100 underline">
+                            <h2 className="self-start text-very-large font-semibold underline">
                                 Top 10 Posts of the Week
                             </h2>
                             <div className="w-full">
@@ -109,11 +109,11 @@ const Feed = () => {
                         </div>
                     </div>
                     {feedItems.length > 10 && (
-                        <>
+                        <div className="flex flex-col gap-4 lg:gap-6">
                             <h2 className="self-start text-very-large font-semibold underline px-4">
                                 More Hot Posts
                             </h2>
-                            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,448px),1fr))] grid-flow-row-dense w-full gap-3 sm:gap-4 lg:gap-6">
+                            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,448px),1fr))] grid-flow-row-dense w-full gap-4 lg:gap-6">
                                 {feedItems.slice(10).map((item) => (
                                     <Card key={item.id}>
                                         <CardHeader>
@@ -133,7 +133,7 @@ const Feed = () => {
                                     </Card>
                                 ))}
                             </div>
-                        </>
+                        </div>
                     )}
                 </>
             ) : null}
