@@ -18,6 +18,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from '@/components/ui/carousel'
+import { Skeleton } from '@/components/ui/skeleton'
 import fetchFeedItems from '@/api/fetchFeedItems'
 import { FeedItemsType } from '@/types/types'
 import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
@@ -69,75 +70,93 @@ const Feed = () => {
             className="w-full flex flex-col items-center gap-8 lg:gap-12 max-w-7xl relative isolate bg-stone-300 text-stone-950 lg:rounded-lg p-3 sm:p-4 lg:p-6
             drop-shadow-stone-900 drop-shadow-sm"
         >
-            {feedItems.length > 0 ? (
-                <>
-                    <div className="w-full flex flex-col items-center px-16 py-6 bg-stone-400 rounded-lg shadow-md shadow-stone-600">
-                        <div className="w-full flex flex-col gap-4 max-w-3xl">
-                            <h2 className="self-start text-very-large font-semibold underline">
-                                Top 10 Posts of the Week
-                            </h2>
-                            <div className="w-full">
-                                <Carousel>
-                                    <CarouselContent>
-                                        {feedItems.slice(0, 10).map((item) => (
-                                            <CarouselItem key={item.id}>
-                                                <Card>
-                                                    <CardHeader>
-                                                        <CardTitle>
-                                                            {item.name}
-                                                        </CardTitle>
-                                                        <CardDescription>
-                                                            {item.email}
-                                                        </CardDescription>
-                                                    </CardHeader>
-                                                    <CardContent>
-                                                        <p>{item.body}</p>
-                                                    </CardContent>
-                                                    <CardFooter>
-                                                        <Badge variant="outline">
-                                                            Post #{item.id}
-                                                        </Badge>
-                                                    </CardFooter>
-                                                </Card>
-                                            </CarouselItem>
-                                        ))}
-                                    </CarouselContent>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                </Carousel>
-                            </div>
-                        </div>
+            <div className="w-full flex flex-col items-center px-14 sm:px-16 py-6 bg-stone-400 rounded-lg shadow-md shadow-stone-600">
+                <div className="w-full flex flex-col gap-4 max-w-3xl">
+                    <h2 className="self-start text-very-large font-semibold underline">
+                        Top 10 Posts of the Week
+                    </h2>
+                    <div className="w-full">
+                        <Carousel>
+                            <CarouselContent>
+                                {feedItems.length > 0 ? (
+                                    feedItems.slice(0, 10).map((item) => (
+                                        <CarouselItem key={item.id}>
+                                            <Card>
+                                                <CardHeader>
+                                                    <CardTitle>
+                                                        {item.name}
+                                                    </CardTitle>
+                                                    <CardDescription>
+                                                        {item.email}
+                                                    </CardDescription>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <p>{item.body}</p>
+                                                </CardContent>
+                                                <CardFooter>
+                                                    <Badge variant="outline">
+                                                        Post #{item.id}
+                                                    </Badge>
+                                                </CardFooter>
+                                            </Card>
+                                        </CarouselItem>
+                                    ))
+                                ) : (
+                                    <CarouselItem>
+                                        <Card>
+                                            <CardHeader>
+                                                <CardTitle>
+                                                    <Skeleton className="h-[20px] w-[196px] max-w-3/5 rounded-full" />
+                                                </CardTitle>
+                                                <CardDescription>
+                                                    <Skeleton className="h-[16px] w-[144px] max-w-2/5 rounded-full" />
+                                                </CardDescription>
+                                            </CardHeader>
+                                            <CardContent className="flex flex-col gap-2">
+                                                <Skeleton className="h-[18px] w-[512px] max-w-4/5 rounded-full" />
+                                                <Skeleton className="h-[18px] w-[512px] max-w-4/5 rounded-full" />
+                                                <Skeleton className="h-[18px] w-[128px] max-w-4/5 rounded-full" />
+                                            </CardContent>
+                                            <CardFooter>
+                                                <Skeleton className="h-[22px] w-[48px] max-w-2/5 rounded-full" />
+                                            </CardFooter>
+                                        </Card>
+                                    </CarouselItem>
+                                )}
+                            </CarouselContent>
+                            <CarouselPrevious />
+                            <CarouselNext />
+                        </Carousel>
                     </div>
-                    {feedItems.length > 10 && (
-                        <div className="flex flex-col gap-4 lg:gap-6">
-                            <h2 className="self-start text-very-large font-semibold underline px-4">
-                                More Hot Posts
-                            </h2>
-                            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,448px),1fr))] grid-flow-row-dense w-full gap-4 lg:gap-6">
-                                {feedItems.slice(10).map((item) => (
-                                    <Card key={item.id}>
-                                        <CardHeader>
-                                            <CardTitle>{item.name}</CardTitle>
-                                            <CardDescription>
-                                                {item.email}
-                                            </CardDescription>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <p>{item.body}</p>
-                                        </CardContent>
-                                        <CardFooter>
-                                            <Badge variant="outline">
-                                                Post #{item.id}
-                                            </Badge>
-                                        </CardFooter>
-                                    </Card>
-                                ))}
-                            </div>
-                        </div>
-                    )}
-                </>
-            ) : null}
-
+                </div>
+            </div>
+            {feedItems.length > 10 && (
+                <div className="flex flex-col gap-4 lg:gap-6">
+                    <h2 className="self-start text-very-large font-semibold underline px-4">
+                        More Hot Posts
+                    </h2>
+                    <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,448px),1fr))] grid-flow-row-dense w-full gap-4 lg:gap-6">
+                        {feedItems.slice(10).map((item) => (
+                            <Card key={item.id}>
+                                <CardHeader>
+                                    <CardTitle>{item.name}</CardTitle>
+                                    <CardDescription>
+                                        {item.email}
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                    <p>{item.body}</p>
+                                </CardContent>
+                                <CardFooter>
+                                    <Badge variant="outline">
+                                        Post #{item.id}
+                                    </Badge>
+                                </CardFooter>
+                            </Card>
+                        ))}
+                    </div>
+                </div>
+            )}
             {isLoading && (
                 <div className="p-2 pt-4">
                     <FetchLoading ariaLabel="Loading more Items." />
