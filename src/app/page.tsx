@@ -2,6 +2,7 @@
 
 import Feed from '@/components/feed/Feed'
 import Footer from '@/components/footer/Footer'
+import Hero from '@/components/hero/Hero'
 import Navigation from '@/components/navigation/Navigation'
 import { useFocusTrap } from '@/hooks/useFocusTrap'
 import { useSetWindowScrollY } from '@/hooks/useSetWindowScrollY'
@@ -13,7 +14,7 @@ export default function Home() {
     return (
         <div className="min-h-svh flex flex-col items-center justify-start bg-gradient-to-b from-stone-700 to-stone-800">
             <Navigation />
-            <p>Hero Section</p>
+            <Hero />
             <Feed />
             <Footer />
         </div>
