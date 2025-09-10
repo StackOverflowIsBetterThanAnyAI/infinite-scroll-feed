@@ -1,9 +1,31 @@
+import { useContext } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { ContextTopTenPosts } from '@/context/ContextTopTenPosts'
 import heroLogo from '@/assets/hero_logo.webp'
-import Image from 'next/image'
 
 const Hero = () => {
+    const contextTopTenPosts = useContext(ContextTopTenPosts)
+    if (!contextTopTenPosts) {
+        throw new Error(
+            'Feed must be used within a ContextTopTenPosts.Provider'
+        )
+    }
+    const topTenPostsRef = contextTopTenPosts
+
+    const handleScrollToTopTenPosts = () => {
+        if (topTenPostsRef.current) {
+            const OFFSET = 64
+            const top =
+                topTenPostsRef.current.getBoundingClientRect().top +
+                window.scrollY -
+                OFFSET
+
+            window.scrollTo({ top, behavior: 'smooth' })
+        }
+    }
+
     return (
         <div className="w-full flex flex-col items-center gap-8 max-w-7xl relative isolate bg-stone-100 text-stone-950 p-3 sm:p-4 lg:p-6 my-6 lg:my-8">
             <h1 className="text-extremely-large font-mono font-semibold">
@@ -63,14 +85,14 @@ const Hero = () => {
                             variant="outline"
                             className="flex m-auto mt-4 px-8 w-fit"
                         >
-                            <Link
-                                href=""
+                            <button
                                 className="text-normal"
                                 aria-label="Link to Top 10 Posts (scrolls to section)"
                                 title="Link to Top 10 Posts"
+                                onClick={handleScrollToTopTenPosts}
                             >
                                 Top 10 Posts
-                            </Link>
+                            </button>
                         </Button>
                     </p>
                 </div>

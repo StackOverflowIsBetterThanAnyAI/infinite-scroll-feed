@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { FetchLoading } from 'fetch-loading'
 import { Badge } from '@/components/ui/badge'
 import {
@@ -20,11 +20,20 @@ import {
 } from '@/components/ui/carousel'
 import { Skeleton } from '@/components/ui/skeleton'
 import fetchFeedItems from '@/api/fetchFeedItems'
+import { ContextTopTenPosts } from '@/context/ContextTopTenPosts'
 import { FeedItemsType } from '@/types/types'
 import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
 import { getWindowScrollY } from '@/utils/getWindowScrollY'
 
 const Feed = () => {
+    const contextTopTenPosts = useContext(ContextTopTenPosts)
+    if (!contextTopTenPosts) {
+        throw new Error(
+            'Feed must be used within a ContextTopTenPosts.Provider'
+        )
+    }
+    const topTenPostsRef = contextTopTenPosts
+
     const PAGE_SIZE = 10
     const nextPage = useRef<number>(1)
     const [feedItems, setFeedItems] = useState<Array<FeedItemsType>>([])
@@ -69,6 +78,7 @@ const Feed = () => {
         <main
             className="w-full flex flex-col items-center gap-8 lg:gap-12 max-w-7xl relative isolate bg-stone-300 text-stone-950 lg:rounded-lg p-3 sm:p-4 lg:p-6
             drop-shadow-stone-900 drop-shadow-sm"
+            ref={topTenPostsRef}
         >
             <div className="w-full flex flex-col items-center px-14 sm:px-16 py-6 bg-stone-400/60 rounded-lg shadow-md shadow-stone-500">
                 <div className="w-full flex flex-col gap-4 max-w-3xl">
