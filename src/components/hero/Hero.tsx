@@ -87,8 +87,8 @@ const Hero = () => {
                         >
                             <button
                                 className="text-normal"
-                                aria-label="Link to Top 10 Posts (scrolls to section)"
-                                title="Link to Top 10 Posts"
+                                aria-label="Scroll to Top 10 Posts"
+                                title="Scroll to Top 10 Posts"
                                 onClick={handleScrollToTopTenPosts}
                             >
                                 Top 10 Posts
