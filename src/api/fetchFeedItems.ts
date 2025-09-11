@@ -16,13 +16,13 @@ const fetchFeedItems = async (
         )
 
         if (!response.ok) {
-            console.error('An error occurred while fetching the photos.')
+            console.error('An error occurred while fetching the comments.')
             throw new Error('Network response was not ok')
         }
 
         const data = await response.json()
         if (!data) {
-            console.error('An error occurred while fetching the photos.')
+            console.error('An error occurred while fetching the comments.')
             throw new Error('Received data was not ok')
         }
 
@@ -38,7 +38,7 @@ const fetchFeedItems = async (
             return unique
         })
     } catch (error: unknown) {
-        console.error('An error occurred while fetching the photos.', error)
+        console.error('An error occurred while fetching the comments.', error)
     }
 }
 
