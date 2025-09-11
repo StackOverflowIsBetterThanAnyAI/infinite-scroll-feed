@@ -78,7 +78,7 @@ const Hero = () => {
                         routes from JSON Placeholder to fetch and display
                         comments along with user information in a card format.
                     </p>
-                    <p className="text-center p-4 mt-4 bg-stone-400/60  rounded-lg">
+                    <p className="text-center p-4 mt-6 outline-4 outline-stone-400/60  rounded-lg">
                         Check out the top 10 posts of the week right now!
                         <Button
                             asChild
