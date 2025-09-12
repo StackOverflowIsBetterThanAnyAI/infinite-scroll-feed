@@ -26,9 +26,9 @@ const Quote = () => {
 
     useEffect(() => {
         const parsedStorageData = getItemFromSessionStorage()
-        setQuote(parsedStorageData?.quote || [])
+        setQuote(parsedStorageData?.quote || null)
 
-        if (!parsedStorageData?.quote?.length) {
+        if (!parsedStorageData?.quote) {
             loadQuote()
         }
     }, [loadQuote])
