@@ -4,7 +4,7 @@ type NavigationButtonProps = { handleScroll: () => void; label: string }
 
 const NavigationButton = ({ handleScroll, label }: NavigationButtonProps) => {
     return (
-        <Button asChild variant="ghost" className="px-4">
+        <Button asChild variant="ghost" className="px-2">
             <button
                 className="text-large"
                 aria-label={`Scroll to ${label}`}
