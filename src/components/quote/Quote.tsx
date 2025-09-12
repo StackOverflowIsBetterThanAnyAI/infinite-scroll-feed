@@ -43,7 +43,7 @@ const Quote = () => {
             </h2>
             {quote ? (
                 <div className="flex flex-col">
-                    <i>"{quote.body}"</i>
+                    <i>&quot;{quote.body}&quot;</i>
                     <p className="self-end px-4"> - unknown author</p>
                 </div>
             ) : (
