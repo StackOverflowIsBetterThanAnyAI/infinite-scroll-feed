@@ -1,10 +1,18 @@
 import { Button } from '@/components/ui/button'
 
-type NavigationButtonProps = { handleScroll: () => void; label: string }
+type NavigationButtonProps = {
+    handleScroll: () => void
+    label: string
+    variant: 'secondary' | 'ghost'
+}
 
-const NavigationButton = ({ handleScroll, label }: NavigationButtonProps) => {
+const NavigationButton = ({
+    handleScroll,
+    label,
+    variant,
+}: NavigationButtonProps) => {
     return (
-        <Button asChild variant="ghost" className="px-2">
+        <Button asChild variant={variant} className="px-2">
             <button
                 className="text-large"
                 aria-label={`Scroll to ${label}`}
