@@ -13,6 +13,7 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card'
+import { Skeleton } from '@/components/ui/skeleton'
 import fetchUsers from '@/api/fetchUsers'
 import { ContextTopUsers } from '@/context/ContextTopUsers'
 import { UsersType } from '@/types/types'
@@ -62,31 +63,52 @@ const Users = () => {
                         Most Active Users
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
-                        {SCREEN_WIDTH !== 'MOBILE' && (
-                            <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {users.length > 0
-                                    ? users.slice(0, 4).map((item) => (
-                                          <Card key={item.id} className="gap-4">
-                                              <CardHeader>
-                                                  <CardTitle>
-                                                      {item.name}
-                                                  </CardTitle>
-                                                  <CardDescription>
-                                                      {item.email}
-                                                  </CardDescription>
-                                              </CardHeader>
-                                              <CardContent>
-                                                  <p>{item.company.name}</p>
-                                                  <p>{item.company.bs}</p>
-                                              </CardContent>
-                                              <CardFooter>
-                                                  {item.website}
-                                              </CardFooter>
-                                          </Card>
-                                      ))
-                                    : null}
-                            </div>
-                        )}
+                        <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {users.length > 0
+                                ? users.slice(0, 4).map((item) => (
+                                      <Card
+                                          key={item.id}
+                                          className="gap-4 hidden sm:flex"
+                                      >
+                                          <CardHeader>
+                                              <CardTitle>{item.name}</CardTitle>
+                                              <CardDescription>
+                                                  {item.email}
+                                              </CardDescription>
+                                          </CardHeader>
+                                          <CardContent>
+                                              <p>{item.company.name}</p>
+                                              <p>{item.company.bs}</p>
+                                          </CardContent>
+                                          <CardFooter>
+                                              {item.website}
+                                          </CardFooter>
+                                      </Card>
+                                  ))
+                                : Array.from({ length: 4 }).map((_, i) => (
+                                      <Card
+                                          className="gap-4 hidden sm:flex"
+                                          key={i}
+                                      >
+                                          <CardHeader>
+                                              <CardTitle>
+                                                  <Skeleton className="h-[20px] w-[196px] max-w-3/5 rounded-full" />
+                                              </CardTitle>
+                                              <CardDescription>
+                                                  <Skeleton className="h-[16px] w-[144px] max-w-2/5 rounded-full" />
+                                              </CardDescription>
+                                          </CardHeader>
+                                          <CardContent className="flex flex-col gap-2">
+                                              <Skeleton className="h-[18px] w-[512px] max-w-4/5 rounded-full" />
+                                              <Skeleton className="h-[18px] w-[512px] max-w-4/5 rounded-full" />
+                                              <Skeleton className="h-[18px] w-[128px] max-w-4/5 rounded-full" />
+                                          </CardContent>
+                                          <CardFooter>
+                                              <Skeleton className="h-[22px] w-[48px] max-w-2/5 rounded-full" />
+                                          </CardFooter>
+                                      </Card>
+                                  ))}
+                        </div>
                         <div className="flex flex-col gap-4">
                             {users.length > 4 ? (
                                 <Card className="h-full">
@@ -140,7 +162,42 @@ const Users = () => {
                                         </Accordion>
                                     </CardContent>
                                 </Card>
-                            ) : null}
+                            ) : (
+                                <Card className="gap-4 h-full">
+                                    <CardHeader>
+                                        <CardTitle>
+                                            <Skeleton className="h-[20px] w-[196px] max-w-3/5 rounded-full" />
+                                        </CardTitle>
+                                        <CardDescription>
+                                            <Skeleton className="h-[16px] w-[144px] max-w-2/5 rounded-full" />
+                                        </CardDescription>
+                                    </CardHeader>
+                                    <CardContent className="flex flex-col gap-2">
+                                        <Skeleton className="h-[18px] w-[512px] max-w-4/5 rounded-full" />
+                                        <Skeleton className="h-[18px] w-[512px] max-w-4/5 rounded-full" />
+                                        <Skeleton className="h-[18px] w-[128px] max-w-4/5 rounded-full" />
+                                    </CardContent>
+                                    <CardFooter>
+                                        <Skeleton className="h-[22px] w-[48px] max-w-2/5 rounded-full" />
+                                    </CardFooter>
+                                    <CardHeader>
+                                        <CardTitle>
+                                            <Skeleton className="h-[20px] w-[196px] max-w-3/5 rounded-full" />
+                                        </CardTitle>
+                                        <CardDescription>
+                                            <Skeleton className="h-[16px] w-[144px] max-w-2/5 rounded-full" />
+                                        </CardDescription>
+                                    </CardHeader>
+                                    <CardContent className="flex flex-col gap-2">
+                                        <Skeleton className="h-[18px] w-[512px] max-w-4/5 rounded-full" />
+                                        <Skeleton className="h-[18px] w-[512px] max-w-4/5 rounded-full" />
+                                        <Skeleton className="h-[18px] w-[128px] max-w-4/5 rounded-full" />
+                                    </CardContent>
+                                    <CardFooter>
+                                        <Skeleton className="h-[22px] w-[48px] max-w-2/5 rounded-full" />
+                                    </CardFooter>
+                                </Card>
+                            )}
                         </div>
                     </div>
                 </div>
