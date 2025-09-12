@@ -3,6 +3,7 @@
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { FetchLoading } from 'fetch-loading'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import {
     Card,
     CardContent,
@@ -172,6 +173,16 @@ const Feed = () => {
                     <FetchLoading ariaLabel="Loading more Items." />
                 </div>
             )}
+            <Button asChild variant="outline" className="px-4">
+                <button
+                    className="text-large"
+                    aria-label="Load more Posts"
+                    title="Load more Posts"
+                    onClick={loadMoreItems}
+                >
+                    Load more Posts
+                </button>
+            </Button>
         </main>
     )
 }
