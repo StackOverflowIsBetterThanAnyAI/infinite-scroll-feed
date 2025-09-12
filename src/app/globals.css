@@ -62,6 +62,8 @@ html {
     --color-muted-foreground: var(--muted-foreground);
     --color-primary: var(--primary);
     --color-primary-foreground: var(--primary-foreground);
+    --color-ring: var(--ring-dark);
+    --color-ring-light: var(--ring-light);
     --color-secondary: var(--secondary);
     --color-secondary-foreground: var(--secondary-foreground);
 }
@@ -78,6 +80,8 @@ html {
     --muted-foreground: oklch(0.45782 0.00486 286.054);
     --primary: oklch(0.21 0.006 285.885);
     --primary-foreground: oklch(0.985 0 0);
+    --ring-dark: oklch(0.141 0.005 285.823);
+    --ring-light: oklch(0.985 0 0);
     --secondary: oklch(0.967 0.001 286.375);
     --secondary-foreground: oklch(0.21 0.006 285.885);
 }
