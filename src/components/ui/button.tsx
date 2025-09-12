@@ -5,7 +5,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive",
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring focus-visible:ring-[2px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive",
     {
         variants: {
             variant: {
@@ -17,8 +17,8 @@ const buttonVariants = cva(
                     'border bg-background shadow-xs hover:bg-stone-200 active:bg-stone-300',
                 secondary:
                     'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
-                ghost: 'hover:bg-stone-700 active:bg-stone-600',
-                link: 'text-primary hover:bg-stone-200/40 active:bg-stone-300/70',
+                ghost: 'hover:bg-stone-700 active:bg-stone-600 focus-visible:ring-ring-light',
+                link: 'text-primary hover:bg-stone-200/40 active:bg-stone-300/70 focus-visible:ring-ring/50 focus-visible:ring-[3px]',
             },
             size: {
                 default: 'h-9 p-1 mx-1.5',
