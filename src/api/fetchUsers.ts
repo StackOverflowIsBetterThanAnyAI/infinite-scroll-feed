@@ -24,15 +24,9 @@ const fetchUsers = async (
             throw new Error('Received data was not ok')
         }
 
-        setUsers((prev) => {
-            const merged = [...prev, ...data]
-            const unique = Array.from(
-                new Map(merged.map((item) => [item.id, item])).values()
-            )
-
-            setItemInSessionStorage('users', unique)
-
-            return unique
+        setUsers(() => {
+            setItemInSessionStorage('users', data)
+            return data
         })
     } catch (error: unknown) {
         console.error('An error occurred while fetching the users.', error)
