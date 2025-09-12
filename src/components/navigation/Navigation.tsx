@@ -1,12 +1,14 @@
 'use client'
 
 import { useContext, useRef, useState } from 'react'
+import NavigationButton from './NavigationButton'
 import NavigationLogo from './NavigationLogo'
 import { ContextQuote } from '@/context/ContextQuote'
 import { ContextTopTenPosts } from '@/context/ContextTopTenPosts'
 import { ContextTopUsers } from '@/context/ContextTopUsers'
+import { setWindowScrollTo } from '@/utils/setWindowScrollTo'
 import { useNavigationOpacity } from '@/hooks/useNavigationOpacity'
-import NavigationButton from './NavigationButton'
+import { useScreenWidth } from '@/hooks/useScreenWidth'
 
 const Navigation = () => {
     const contextQuote = useContext(ContextQuote)
@@ -33,45 +35,23 @@ const Navigation = () => {
     }
     const topUsersRef = contextTopUsers
 
+    const SCREEN_WIDTH = useScreenWidth()
+
     const [navOpacity, setNavOpacity] = useState<string>('opacity-100')
     const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
     useNavigationOpacity({ setNavOpacity, timerRef })
 
     const handleScrollToQuote = () => {
-        if (quoteRef.current) {
-            const OFFSET = 96
-            const top =
-                quoteRef.current.getBoundingClientRect().top +
-                window.scrollY -
-                OFFSET
-
-            window.scrollTo({ top, behavior: 'smooth' })
-        }
+        setWindowScrollTo(96, quoteRef)
     }
 
     const handleScrollToTopUsers = () => {
-        if (topUsersRef.current) {
-            const OFFSET = 64
-            const top =
-                topUsersRef.current.getBoundingClientRect().top +
-                window.scrollY -
-                OFFSET
-
-            window.scrollTo({ top, behavior: 'smooth' })
-        }
+        setWindowScrollTo(64, topUsersRef)
     }
 
     const handleScrollToTopTenPosts = () => {
-        if (topTenPostsRef.current) {
-            const OFFSET = 96
-            const top =
-                topTenPostsRef.current.getBoundingClientRect().top +
-                window.scrollY -
-                OFFSET
-
-            window.scrollTo({ top, behavior: 'smooth' })
-        }
+        setWindowScrollTo(96, topTenPostsRef)
     }
 
     return (
@@ -80,7 +60,7 @@ const Navigation = () => {
             bg-stone-800 text-zinc-100 shadow-md shadow-stone-600/80`}
             data-testid="navigation"
         >
-            <div className="max-w-7xl flex items-center justify-between m-auto h-16 px-2 sm:px-4 py-1 md:py-2">
+            <div className="max-w-7xl flex items-center justify-between m-auto h-16 px-2 py-1 md:py-2">
                 <NavigationLogo />
                 <div>
                     <NavigationButton

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ContextTopUsers } from '@/context/ContextTopUsers'
 import heroLogo from '@/assets/hero_logo.webp'
+import { setWindowScrollTo } from '@/utils/setWindowScrollTo'
 
 const Hero = () => {
     const contextTopUsers = useContext(ContextTopUsers)
@@ -13,15 +14,7 @@ const Hero = () => {
     const topTenUsers = contextTopUsers
 
     const handleScrollToTopUsers = () => {
-        if (topTenUsers.current) {
-            const OFFSET = 64
-            const top =
-                topTenUsers.current.getBoundingClientRect().top +
-                window.scrollY -
-                OFFSET
-
-            window.scrollTo({ top, behavior: 'smooth' })
-        }
+        setWindowScrollTo(64, topTenUsers)
     }
 
     return (
