@@ -6,7 +6,7 @@ const NavigationButton = ({ handleScroll, label }: NavigationButtonProps) => {
     return (
         <Button asChild variant="ghost" className="px-4">
             <button
-                className="text-normal"
+                className="text-large"
                 aria-label={`Scroll to ${label}`}
                 title={`Scroll to ${label}`}
                 onClick={handleScroll}
