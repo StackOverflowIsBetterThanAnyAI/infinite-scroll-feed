@@ -2,23 +2,21 @@ import { useContext } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { ContextTopTenPosts } from '@/context/ContextTopTenPosts'
+import { ContextTopUsers } from '@/context/ContextTopUsers'
 import heroLogo from '@/assets/hero_logo.webp'
 
 const Hero = () => {
-    const contextTopTenPosts = useContext(ContextTopTenPosts)
-    if (!contextTopTenPosts) {
-        throw new Error(
-            'Feed must be used within a ContextTopTenPosts.Provider'
-        )
+    const contextTopUsers = useContext(ContextTopUsers)
+    if (!contextTopUsers) {
+        throw new Error('Hero must be used within a ContextTopUsers.Provider')
     }
-    const topTenPostsRef = contextTopTenPosts
+    const topTenUsers = contextTopUsers
 
-    const handleScrollToTopTenPosts = () => {
-        if (topTenPostsRef.current) {
+    const handleScrollToTopUsers = () => {
+        if (topTenUsers.current) {
             const OFFSET = 64
             const top =
-                topTenPostsRef.current.getBoundingClientRect().top +
+                topTenUsers.current.getBoundingClientRect().top +
                 window.scrollY -
                 OFFSET
 
@@ -70,16 +68,22 @@ const Hero = () => {
                         It makes use of the{' '}
                         <strong className="font-mono px-0.5 text-large">
                             /comments
+                        </strong>
+                        ,{' '}
+                        <strong className="font-mono px-0.5 text-large">
+                            /posts
                         </strong>{' '}
                         and{' '}
                         <strong className="font-mono px-0.5 text-large">
                             /users
                         </strong>{' '}
                         routes from JSON Placeholder to fetch and display
-                        comments along with user information in a card format.
+                        comments, and the quote of the day, along with user
+                        information in a card format.
                     </p>
                     <p className="text-center p-4 mt-6 outline-4 outline-stone-400/60  rounded-lg">
-                        Check out the top 10 posts of the week right now!
+                        Check out the most active users of the past week right
+                        now!
                         <Button
                             asChild
                             variant="outline"
@@ -87,11 +91,11 @@ const Hero = () => {
                         >
                             <button
                                 className="text-normal"
-                                aria-label="Scroll to Top 10 Posts"
-                                title="Scroll to Top 10 Posts"
-                                onClick={handleScrollToTopTenPosts}
+                                aria-label="Scroll to the most active users"
+                                title="Scroll to the most active users"
+                                onClick={handleScrollToTopUsers}
                             >
-                                Top 10 Posts
+                                Most Active Users
                             </button>
                         </Button>
                     </p>
