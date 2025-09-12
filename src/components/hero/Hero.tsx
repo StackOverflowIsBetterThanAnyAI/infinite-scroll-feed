@@ -27,7 +27,7 @@ const Hero = () => {
     }
 
     return (
-        <section className="w-full flex flex-col items-center gap-8 max-w-7xl relative isolate bg-stone-100 text-stone-950 p-3 sm:p-4 lg:p-6 my-6 lg:my-8">
+        <section className="w-full flex flex-col items-center gap-8 max-w-7xl bg-stone-100 text-stone-950 p-3 sm:p-4 lg:p-6 my-6 lg:my-8">
             <h1 className="text-extremely-large font-mono font-semibold">
                 Infinite Scroll Feed
             </h1>

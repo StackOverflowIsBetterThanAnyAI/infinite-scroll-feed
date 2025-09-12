@@ -76,7 +76,7 @@ const Feed = () => {
 
     return (
         <main
-            className="w-full flex flex-col items-center gap-8 lg:gap-12 max-w-7xl relative isolate bg-stone-300 text-stone-950 lg:rounded-lg p-3 sm:p-4 lg:p-6
+            className="w-full flex flex-col items-center gap-8 lg:gap-12 max-w-7xl bg-stone-300 text-stone-950 lg:rounded-lg p-3 sm:p-4 lg:p-6
             drop-shadow-stone-900 drop-shadow-sm"
             ref={topTenPostsRef}
         >
