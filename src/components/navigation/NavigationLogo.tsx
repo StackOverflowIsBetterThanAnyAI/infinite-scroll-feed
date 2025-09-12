@@ -10,9 +10,8 @@ const NavigationLogo = () => {
     }
 
     return (
-        <Button asChild variant="ghost" className="px-4 h-fit">
+        <Button asChild variant="ghost" className="px-0 sm:px-4 h-fit">
             <button
-                className="text-normal"
                 aria-label="Scroll back to the the Top"
                 title="Back to the the Top"
                 onClick={handleScrollToTop}
@@ -25,9 +24,7 @@ const NavigationLogo = () => {
                     className="rounded-lg"
                     loading="lazy"
                 />
-                <span className="max-[336px]:hidden text-large">
-                    Infinite Scroll Feed
-                </span>
+                <span className="text-large">Infinite Scroll Feed</span>
             </button>
         </Button>
     )
