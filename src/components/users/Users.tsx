@@ -23,9 +23,7 @@ import { useScreenWidth } from '@/hooks/useScreenWidth'
 const Users = () => {
     const contextTopUsersRef = useContext(ContextTopUsers)
     if (!contextTopUsersRef) {
-        throw new Error(
-            'Users must be used within a contextTopUsersRef.Provider'
-        )
+        throw new Error('Users must be used within a ContextTopUsers.Provider')
     }
     const topUsersRef = contextTopUsersRef
 
