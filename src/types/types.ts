@@ -6,6 +6,13 @@ export type FeedItemsType = {
     body: string
 }
 
+export type QuoteType = {
+    userId: number
+    id: number
+    title: string
+    body: string
+}
+
 export type UsersType = {
     id: number
     name: string

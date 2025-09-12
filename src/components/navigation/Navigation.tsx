@@ -2,12 +2,21 @@
 
 import { useContext, useRef, useState } from 'react'
 import NavigationLogo from './NavigationLogo'
+import { ContextQuote } from '@/context/ContextQuote'
 import { ContextTopTenPosts } from '@/context/ContextTopTenPosts'
 import { ContextTopUsers } from '@/context/ContextTopUsers'
 import { useNavigationOpacity } from '@/hooks/useNavigationOpacity'
 import NavigationButton from './NavigationButton'
 
 const Navigation = () => {
+    const contextQuote = useContext(ContextQuote)
+    if (!contextQuote) {
+        throw new Error(
+            'Navigation must be used within a ContextQuote.Provider'
+        )
+    }
+    const quoteRef = contextQuote
+
     const contextTopTenPosts = useContext(ContextTopTenPosts)
     if (!contextTopTenPosts) {
         throw new Error(
@@ -29,6 +38,18 @@ const Navigation = () => {
 
     useNavigationOpacity({ setNavOpacity, timerRef })
 
+    const handleScrollToQuote = () => {
+        if (quoteRef.current) {
+            const OFFSET = 96
+            const top =
+                quoteRef.current.getBoundingClientRect().top +
+                window.scrollY -
+                OFFSET
+
+            window.scrollTo({ top, behavior: 'smooth' })
+        }
+    }
+
     const handleScrollToTopUsers = () => {
         if (topUsersRef.current) {
             const OFFSET = 64
@@ -43,7 +64,7 @@ const Navigation = () => {
 
     const handleScrollToTopTenPosts = () => {
         if (topTenPostsRef.current) {
-            const OFFSET = 64
+            const OFFSET = 96
             const top =
                 topTenPostsRef.current.getBoundingClientRect().top +
                 window.scrollY -
@@ -65,6 +86,10 @@ const Navigation = () => {
                     <NavigationButton
                         handleScroll={handleScrollToTopUsers}
                         label="Most Active Users"
+                    />
+                    <NavigationButton
+                        handleScroll={handleScrollToQuote}
+                        label="Quote of the Day"
                     />
                     <NavigationButton
                         handleScroll={handleScrollToTopTenPosts}
