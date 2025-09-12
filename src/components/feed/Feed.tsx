@@ -91,7 +91,7 @@ const Feed = () => {
                                 {feedItems.length > 0 ? (
                                     feedItems.slice(0, 10).map((item) => (
                                         <CarouselItem key={item.id}>
-                                            <Card>
+                                            <Card className="gap-4">
                                                 <CardHeader>
                                                     <CardTitle>
                                                         {item.name}
@@ -113,7 +113,7 @@ const Feed = () => {
                                     ))
                                 ) : (
                                     <CarouselItem>
-                                        <Card>
+                                        <Card className="gap-4">
                                             <CardHeader>
                                                 <CardTitle>
                                                     <Skeleton className="h-[20px] w-[196px] max-w-3/5 rounded-full" />
@@ -147,7 +147,7 @@ const Feed = () => {
                     </h2>
                     <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,448px),1fr))] grid-flow-row-dense w-full gap-4 lg:gap-6">
                         {feedItems.slice(10).map((item) => (
-                            <Card key={item.id}>
+                            <Card key={item.id} className="gap-6">
                                 <CardHeader>
                                     <CardTitle>{item.name}</CardTitle>
                                     <CardDescription>
