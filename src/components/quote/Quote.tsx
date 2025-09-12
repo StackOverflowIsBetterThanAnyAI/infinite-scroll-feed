@@ -42,9 +42,9 @@ const Quote = () => {
                 Quote of the Day
             </h2>
             {quote ? (
-                <div className="flex flex-col">
+                <div className="flex flex-col text-normal">
                     <i>&quot;{quote.body}&quot;</i>
-                    <p className="self-end px-4"> - unknown author</p>
+                    <p className="self-end px-4 py-1"> - unknown author</p>
                 </div>
             ) : (
                 <div className="flex flex-col gap-2">
