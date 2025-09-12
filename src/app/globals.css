@@ -77,7 +77,7 @@ html {
     --accent: oklch(0.967 0.001 286.375);
     --accent-foreground: oklch(0.21 0.006 285.885);
     --destructive: oklch(0.577 0.245 27.325);
-    --muted-foreground: oklch(0.45782 0.00486 286.054);
+    --muted-foreground: oklch(43.965% 0.00491 286.052);
     --primary: oklch(0.21 0.006 285.885);
     --primary-foreground: oklch(0.985 0 0);
     --ring-dark: oklch(0.141 0.005 285.823);
