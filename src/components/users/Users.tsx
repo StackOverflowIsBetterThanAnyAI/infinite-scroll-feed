@@ -52,11 +52,11 @@ const Users = () => {
 
     return (
         <section
-            className="w-full flex flex-col items-center gap-8 lg:gap-12 max-w-7xl p-6 lg:py-8 min-[1304px]:px-0"
+            className="w-full flex flex-col items-center max-w-7xl p-6 lg:py-8 min-[1304px]:px-0"
             ref={topUsersRef}
         >
             <div className="w-full flex flex-col items-center">
-                <div className="w-full flex flex-col gap-4">
+                <div className="w-full flex flex-col gap-0 sm:gap-4">
                     <h2 className="text-very-large font-semibold text-zinc-50 underline">
                         Most Active Users
                     </h2>
