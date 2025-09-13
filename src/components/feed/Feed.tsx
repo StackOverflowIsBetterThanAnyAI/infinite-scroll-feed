@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { useCallback, useContext, useRef, useState } from 'react'
 import { FetchLoading } from 'fetch-loading'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -20,11 +20,12 @@ import {
     CarouselPrevious,
 } from '@/components/ui/carousel'
 import { Skeleton } from '@/components/ui/skeleton'
-import fetchFeedItems from '@/api/fetchFeedItems'
 import { ContextContentLoaded } from '@/context/ContextContentLoaded'
 import { ContextTopTenPosts } from '@/context/ContextTopTenPosts'
 import { FeedItemsType } from '@/types/types'
-import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
+import { fetchFeedItems } from '@/api/fetchFeedItems'
+import { useLoadFeedItems } from '@/hooks/useLoadFeedItems'
+import { useLoadMoreFeedItems } from '@/hooks/useLoadMoreFeedItems'
 
 const Feed = () => {
     const contextContentLoaded = useContext(ContextContentLoaded)
@@ -58,31 +59,8 @@ const Feed = () => {
         setIsLoading(false)
     }, [isLoading, setContentLoaded])
 
-    useEffect(() => {
-        const parsedStorageData = getItemFromSessionStorage()
-        setFeedItems(parsedStorageData?.feedItems || [])
-        nextPage.current = parsedStorageData?.nextPage || 1
-
-        if (!parsedStorageData?.feedItems?.length) {
-            loadMoreItems()
-        } else {
-            setContentLoaded((prev) => ({ ...prev, posts: true }))
-        }
-    }, [loadMoreItems, setContentLoaded])
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (
-                window.innerHeight + window.scrollY >=
-                document.body.offsetHeight - 96
-            ) {
-                loadMoreItems()
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [isLoading, loadMoreItems])
+    useLoadFeedItems(loadMoreItems, nextPage, setContentLoaded, setFeedItems)
+    useLoadMoreFeedItems(isLoading, loadMoreItems)
 
     return (
         <main
