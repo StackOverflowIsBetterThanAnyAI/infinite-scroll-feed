@@ -34,25 +34,24 @@ const Quote = () => {
     }, [loadQuote])
 
     return (
-        <blockquote
-            className="flex flex-col gap-2 sm:gap-4 text-center w-full max-w-7xl bg-stone-100 text-stone-950 p-3 sm:p-4 lg:p-6 my-6 lg:my-8"
-            ref={quoteRef}
-        >
-            <h2 className="self-start text-very-large font-semibold underline">
-                Quote of the Day
-            </h2>
-            {quote ? (
-                <div className="flex flex-col text-normal">
-                    <i>&quot;{quote.body}&quot;</i>
-                    <p className="self-end px-4 py-1"> - unknown author</p>
-                </div>
-            ) : (
-                <div className="flex flex-col gap-2">
-                    <Skeleton className="h-[18px] w-full rounded-full" />
-                    <Skeleton className="self-end h-[18px] w-32 rounded-full" />
-                </div>
-            )}
-        </blockquote>
+        <section className="w-full max-w-7xl" ref={quoteRef}>
+            <blockquote className="flex flex-col gap-2 sm:gap-4 text-center text-pretty bg-stone-100 text-stone-950 p-3 sm:p-4 lg:p-6 my-6 lg:my-8">
+                <h2 className="self-start text-very-large font-semibold underline">
+                    Quote of the Day
+                </h2>
+                {quote ? (
+                    <div className="flex flex-col text-normal">
+                        <i>&quot;{quote.body}&quot;</i>
+                        <p className="self-end px-4 py-1"> - unknown author</p>
+                    </div>
+                ) : (
+                    <div className="flex flex-col gap-2">
+                        <Skeleton className="h-[18px] w-full rounded-full" />
+                        <Skeleton className="self-end h-[18px] w-32 rounded-full" />
+                    </div>
+                )}
+            </blockquote>
+        </section>
     )
 }
 
