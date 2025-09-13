@@ -26,5 +26,5 @@ export const useLoadFeedItems = (
         } else {
             setContentLoaded((prev) => ({ ...prev, posts: true }))
         }
-    }, [loadMoreItems, setContentLoaded])
+    }, [loadMoreItems, nextPage, setContentLoaded, setFeedItems])
 }
