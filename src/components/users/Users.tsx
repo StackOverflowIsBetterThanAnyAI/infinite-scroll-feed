@@ -15,12 +15,21 @@ import {
 } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import fetchUsers from '@/api/fetchUsers'
+import { ContextContentLoaded } from '@/context/ContextContentLoaded'
 import { ContextTopUsers } from '@/context/ContextTopUsers'
 import { UsersType } from '@/types/types'
 import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
 import { useScreenWidth } from '@/hooks/useScreenWidth'
 
 const Users = () => {
+    const contextContentLoaded = useContext(ContextContentLoaded)
+    if (!contextContentLoaded) {
+        throw new Error(
+            'Users must be used within a ContextContentLoaded.Provider'
+        )
+    } // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_contentLoaded, setContentLoaded] = contextContentLoaded
+
     const contextTopUsersRef = useContext(ContextTopUsers)
     if (!contextTopUsersRef) {
         throw new Error('Users must be used within a ContextTopUsers.Provider')
@@ -38,8 +47,9 @@ const Users = () => {
         }
         setIsLoading(true)
         await fetchUsers(setUsers)
+        setContentLoaded((prev) => ({ ...prev, users: true }))
         setIsLoading(false)
-    }, [isLoading])
+    }, [isLoading, setContentLoaded])
 
     useEffect(() => {
         const parsedStorageData = getItemFromSessionStorage()
@@ -47,8 +57,10 @@ const Users = () => {
 
         if (!parsedStorageData?.users?.length) {
             loadUsers()
+        } else {
+            setContentLoaded((prev) => ({ ...prev, users: true }))
         }
-    }, [loadUsers])
+    }, [loadUsers, setContentLoaded])
 
     return (
         <section

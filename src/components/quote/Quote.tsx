@@ -1,4 +1,5 @@
 import { useCallback, useContext, useEffect, useState } from 'react'
+import { ContextContentLoaded } from '@/context/ContextContentLoaded'
 import { ContextQuote } from '@/context/ContextQuote'
 import { QuoteType } from '@/types/types'
 import fetchQuote from '@/api/fetchQuote'
@@ -6,6 +7,14 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
 
 const Quote = () => {
+    const contextContentLoaded = useContext(ContextContentLoaded)
+    if (!contextContentLoaded) {
+        throw new Error(
+            'Quote must be used within a ContextContentLoaded.Provider'
+        )
+    } // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_contentLoaded, setContentLoaded] = contextContentLoaded
+
     const contextQuote = useContext(ContextQuote)
     if (!contextQuote) {
         throw new Error('Users must be used within a ContextQuote.Provider')
@@ -21,8 +30,9 @@ const Quote = () => {
         }
         setIsLoading(true)
         await fetchQuote(setQuote)
+        setContentLoaded((prev) => ({ ...prev, quote: true }))
         setIsLoading(false)
-    }, [isLoading])
+    }, [isLoading, setContentLoaded])
 
     useEffect(() => {
         const parsedStorageData = getItemFromSessionStorage()
@@ -30,8 +40,10 @@ const Quote = () => {
 
         if (!parsedStorageData?.quote) {
             loadQuote()
+        } else {
+            setContentLoaded((prev) => ({ ...prev, quote: true }))
         }
-    }, [loadQuote])
+    }, [loadQuote, setContentLoaded])
 
     return (
         <section className="w-full max-w-7xl" ref={quoteRef}>

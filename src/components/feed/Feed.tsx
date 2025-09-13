@@ -21,11 +21,20 @@ import {
 } from '@/components/ui/carousel'
 import { Skeleton } from '@/components/ui/skeleton'
 import fetchFeedItems from '@/api/fetchFeedItems'
+import { ContextContentLoaded } from '@/context/ContextContentLoaded'
 import { ContextTopTenPosts } from '@/context/ContextTopTenPosts'
 import { FeedItemsType } from '@/types/types'
 import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
 
 const Feed = () => {
+    const contextContentLoaded = useContext(ContextContentLoaded)
+    if (!contextContentLoaded) {
+        throw new Error(
+            'Feed must be used within a ContextContentLoaded.Provider'
+        )
+    } // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_contentLoaded, setContentLoaded] = contextContentLoaded
+
     const contextTopTenPosts = useContext(ContextTopTenPosts)
     if (!contextTopTenPosts) {
         throw new Error(
@@ -45,8 +54,9 @@ const Feed = () => {
         }
         setIsLoading(true)
         await fetchFeedItems(nextPage, PAGE_SIZE, setFeedItems)
+        setContentLoaded((prev) => ({ ...prev, posts: true }))
         setIsLoading(false)
-    }, [isLoading])
+    }, [isLoading, setContentLoaded])
 
     useEffect(() => {
         const parsedStorageData = getItemFromSessionStorage()
@@ -55,8 +65,10 @@ const Feed = () => {
 
         if (!parsedStorageData?.feedItems?.length) {
             loadMoreItems()
+        } else {
+            setContentLoaded((prev) => ({ ...prev, posts: true }))
         }
-    }, [loadMoreItems])
+    }, [loadMoreItems, setContentLoaded])
 
     useEffect(() => {
         const handleScroll = () => {
