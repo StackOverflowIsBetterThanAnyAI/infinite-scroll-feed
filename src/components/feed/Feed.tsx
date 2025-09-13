@@ -24,7 +24,6 @@ import fetchFeedItems from '@/api/fetchFeedItems'
 import { ContextTopTenPosts } from '@/context/ContextTopTenPosts'
 import { FeedItemsType } from '@/types/types'
 import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
-import { getWindowScrollY } from '@/utils/getWindowScrollY'
 
 const Feed = () => {
     const contextTopTenPosts = useContext(ContextTopTenPosts)
@@ -56,8 +55,6 @@ const Feed = () => {
 
         if (!parsedStorageData?.feedItems?.length) {
             loadMoreItems()
-        } else {
-            getWindowScrollY()
         }
     }, [loadMoreItems])
 
