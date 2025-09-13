@@ -14,10 +14,10 @@ import {
     CardTitle,
 } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
-import fetchUsers from '@/api/fetchUsers'
 import { ContextContentLoaded } from '@/context/ContextContentLoaded'
 import { ContextTopUsers } from '@/context/ContextTopUsers'
 import { UsersType } from '@/types/types'
+import { fetchUsers } from '@/api/fetchUsers'
 import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
 import { useScreenWidth } from '@/hooks/useScreenWidth'
 

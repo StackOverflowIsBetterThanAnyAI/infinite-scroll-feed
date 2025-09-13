@@ -2,7 +2,7 @@ import { RefObject, SetStateAction } from 'react'
 import { FeedItemsType } from '@/types/types'
 import { setItemInSessionStorage } from '@/utils/setItemInSessionStorage'
 
-const fetchFeedItems = async (
+export const fetchFeedItems = async (
     nextPage: RefObject<number>,
     PAGE_SIZE: number,
     setFeedItems: (value: SetStateAction<FeedItemsType[]>) => void
@@ -41,5 +41,3 @@ const fetchFeedItems = async (
         console.error('An error occurred while fetching the comments.', error)
     }
 }
-
-export default fetchFeedItems

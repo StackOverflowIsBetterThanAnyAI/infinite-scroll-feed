@@ -2,8 +2,8 @@ import { useCallback, useContext, useEffect, useState } from 'react'
 import { ContextContentLoaded } from '@/context/ContextContentLoaded'
 import { ContextQuote } from '@/context/ContextQuote'
 import { QuoteType } from '@/types/types'
-import fetchQuote from '@/api/fetchQuote'
 import { Skeleton } from '@/components/ui/skeleton'
+import { fetchQuote } from '@/api/fetchQuote'
 import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
 
 const Quote = () => {

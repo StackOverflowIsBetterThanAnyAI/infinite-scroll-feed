@@ -2,7 +2,7 @@ import { SetStateAction } from 'react'
 import { UsersType } from '@/types/types'
 import { setItemInSessionStorage } from '@/utils/setItemInSessionStorage'
 
-const fetchUsers = async (
+export const fetchUsers = async (
     setUsers: (value: SetStateAction<UsersType[]>) => void
 ) => {
     try {
@@ -32,5 +32,3 @@ const fetchUsers = async (
         console.error('An error occurred while fetching the users.', error)
     }
 }
-
-export default fetchUsers

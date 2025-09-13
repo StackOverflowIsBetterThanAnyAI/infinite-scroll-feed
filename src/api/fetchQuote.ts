@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 import { QuoteType } from '@/types/types'
 import { setItemInSessionStorage } from '@/utils/setItemInSessionStorage'
 
-const fetchQuote = async (
+export const fetchQuote = async (
     setQuote: Dispatch<SetStateAction<QuoteType | null>>
 ) => {
     try {
@@ -32,5 +32,3 @@ const fetchQuote = async (
         console.error('An error occurred while fetching the quote.', error)
     }
 }
-
-export default fetchQuote
