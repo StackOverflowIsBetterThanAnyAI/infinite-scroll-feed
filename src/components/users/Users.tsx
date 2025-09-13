@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from 'react'
+import { useCallback, useContext, useState } from 'react'
 import {
     Accordion,
     AccordionContent,
@@ -18,7 +18,7 @@ import { ContextContentLoaded } from '@/context/ContextContentLoaded'
 import { ContextTopUsers } from '@/context/ContextTopUsers'
 import { UsersType } from '@/types/types'
 import { fetchUsers } from '@/api/fetchUsers'
-import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
+import { useLoadUsers } from '@/hooks/useLoadUsers'
 import { useScreenWidth } from '@/hooks/useScreenWidth'
 
 const Users = () => {
@@ -51,16 +51,7 @@ const Users = () => {
         setIsLoading(false)
     }, [isLoading, setContentLoaded])
 
-    useEffect(() => {
-        const parsedStorageData = getItemFromSessionStorage()
-        setUsers(parsedStorageData?.users || [])
-
-        if (!parsedStorageData?.users?.length) {
-            loadUsers()
-        } else {
-            setContentLoaded((prev) => ({ ...prev, users: true }))
-        }
-    }, [loadUsers, setContentLoaded])
+    useLoadUsers(loadUsers, setContentLoaded, setUsers)
 
     return (
         <section

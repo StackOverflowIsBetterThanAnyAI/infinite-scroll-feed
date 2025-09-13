@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from 'react'
+import { useCallback, useContext, useState } from 'react'
 import { ContextContentLoaded } from '@/context/ContextContentLoaded'
 import { ContextQuote } from '@/context/ContextQuote'
 import { QuoteType } from '@/types/types'
