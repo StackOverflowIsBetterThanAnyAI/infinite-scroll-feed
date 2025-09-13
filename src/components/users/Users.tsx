@@ -132,7 +132,10 @@ const Users = () => {
                                                 .slice(
                                                     SCREEN_WIDTH === 'MOBILE'
                                                         ? 0
-                                                        : 4
+                                                        : 4,
+                                                    SCREEN_WIDTH === 'MOBILE'
+                                                        ? 5
+                                                        : users.length
                                                 )
                                                 .map((item) => (
                                                     <AccordionItem
@@ -167,20 +170,20 @@ const Users = () => {
                                 <Card className="gap-4 h-full">
                                     <CardHeader>
                                         <CardTitle>
-                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 mb-6 rounded-full" />
-                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 mb-6 rounded-full" />
-                                            <Skeleton className="h-[16px] w-[128px] max-w-2/5 mb-2 rounded-full" />
-                                            <Skeleton className="h-[16px] w-[96px] max-w-1/5 mb-10 mt-12 sm:mt-0 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
+                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 mb-6 rounded-full hidden sm:flex" />
+                                            <Skeleton className="h-[18px] sm:h-[20px] w-[172px] max-w-3/5 mb-6 rounded-full" />
+                                            <Skeleton className="h-[14px] sm:h-[16px] w-[128px] max-w-2/5 mb-2 rounded-full" />
+                                            <Skeleton className="h-[14px] sm:h-[16px] w-[96px] max-w-1/5 mb-3 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
                                             <Skeleton className="h-[4px] w-full mb-6 rounded-none border-b-2 bg-transparent" />
-                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 mb-10 mt-12 sm:mt-0 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
+                                            <Skeleton className="h-[18px] sm:h-[20px] w-[172px] max-w-3/5 mb-3 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
                                             <Skeleton className="h-[4px] w-full mb-6 rounded-none border-b-2 bg-transparent" />
-                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 mb-10 mt-12 sm:mt-0 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
+                                            <Skeleton className="h-[18px] sm:h-[20px] w-[172px] max-w-3/5 mb-3 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
                                             <Skeleton className="h-[4px] w-full mb-6 rounded-none border-b-2 bg-transparent" />
-                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 mb-10 mt-12 sm:mt-0 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
+                                            <Skeleton className="h-[18px] sm:h-[20px] w-[172px] max-w-3/5 mb-3 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
                                             <Skeleton className="h-[4px] w-full mb-6 rounded-none border-b-2 bg-transparent" />
-                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 mb-10 mt-12 sm:mt-0 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
+                                            <Skeleton className="h-[18px] sm:h-[20px] w-[172px] max-w-3/5 mb-3 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
                                             <Skeleton className="h-[4px] w-full mb-6 rounded-none border-b-2 bg-transparent" />
-                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 rounded-full" />
+                                            <Skeleton className="h-[18px] sm:h-[20px] w-[172px] max-w-3/5 rounded-full" />
                                         </CardTitle>
                                     </CardHeader>
                                 </Card>
