@@ -4,7 +4,7 @@ import { ContextQuote } from '@/context/ContextQuote'
 import { QuoteType } from '@/types/types'
 import { Skeleton } from '@/components/ui/skeleton'
 import { fetchQuote } from '@/api/fetchQuote'
-import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
+import { useLoadQuote } from '@/hooks/useLoadQuote'
 
 const Quote = () => {
     const contextContentLoaded = useContext(ContextContentLoaded)
@@ -34,16 +34,7 @@ const Quote = () => {
         setIsLoading(false)
     }, [isLoading, setContentLoaded])
 
-    useEffect(() => {
-        const parsedStorageData = getItemFromSessionStorage()
-        setQuote(parsedStorageData?.quote || null)
-
-        if (!parsedStorageData?.quote) {
-            loadQuote()
-        } else {
-            setContentLoaded((prev) => ({ ...prev, quote: true }))
-        }
-    }, [loadQuote, setContentLoaded])
+    useLoadQuote(loadQuote, setContentLoaded, setQuote)
 
     return (
         <section className="w-full max-w-7xl" ref={quoteRef}>
