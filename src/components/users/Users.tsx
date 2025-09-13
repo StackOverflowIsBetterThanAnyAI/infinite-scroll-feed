@@ -164,36 +164,22 @@ const Users = () => {
                                 <Card className="gap-4 h-full">
                                     <CardHeader>
                                         <CardTitle>
-                                            <Skeleton className="h-[20px] w-[196px] max-w-3/5 rounded-full" />
+                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 mb-6 rounded-full" />
+                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 mb-6 rounded-full" />
+                                            <Skeleton className="h-[16px] w-[128px] max-w-2/5 mb-2 rounded-full" />
+                                            <Skeleton className="h-[16px] w-[96px] max-w-1/5 mb-10 mt-12 sm:mt-0 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
+                                            <Skeleton className="h-[4px] w-full mb-6 rounded-none border-b-2 bg-transparent" />
+                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 mb-10 mt-12 sm:mt-0 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
+                                            <Skeleton className="h-[4px] w-full mb-6 rounded-none border-b-2 bg-transparent" />
+                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 mb-10 mt-12 sm:mt-0 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
+                                            <Skeleton className="h-[4px] w-full mb-6 rounded-none border-b-2 bg-transparent" />
+                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 mb-10 mt-12 sm:mt-0 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
+                                            <Skeleton className="h-[4px] w-full mb-6 rounded-none border-b-2 bg-transparent" />
+                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 mb-10 mt-12 sm:mt-0 sm:mb-7 md:mb-8 lg:mb-6 rounded-full" />
+                                            <Skeleton className="h-[4px] w-full mb-6 rounded-none border-b-2 bg-transparent" />
+                                            <Skeleton className="h-[20px] w-[172px] max-w-3/5 rounded-full" />
                                         </CardTitle>
-                                        <CardDescription>
-                                            <Skeleton className="h-[16px] w-[144px] max-w-2/5 rounded-full" />
-                                        </CardDescription>
                                     </CardHeader>
-                                    <CardContent className="flex flex-col gap-2">
-                                        <Skeleton className="h-[18px] w-[512px] max-w-4/5 rounded-full" />
-                                        <Skeleton className="h-[18px] w-[512px] max-w-4/5 rounded-full" />
-                                        <Skeleton className="h-[18px] w-[128px] max-w-4/5 rounded-full" />
-                                    </CardContent>
-                                    <CardFooter>
-                                        <Skeleton className="h-[22px] w-[48px] max-w-2/5 rounded-full" />
-                                    </CardFooter>
-                                    <CardHeader>
-                                        <CardTitle>
-                                            <Skeleton className="h-[20px] w-[196px] max-w-3/5 rounded-full" />
-                                        </CardTitle>
-                                        <CardDescription>
-                                            <Skeleton className="h-[16px] w-[144px] max-w-2/5 rounded-full" />
-                                        </CardDescription>
-                                    </CardHeader>
-                                    <CardContent className="flex flex-col gap-2">
-                                        <Skeleton className="h-[18px] w-[512px] max-w-4/5 rounded-full" />
-                                        <Skeleton className="h-[18px] w-[512px] max-w-4/5 rounded-full" />
-                                        <Skeleton className="h-[18px] w-[128px] max-w-4/5 rounded-full" />
-                                    </CardContent>
-                                    <CardFooter>
-                                        <Skeleton className="h-[22px] w-[48px] max-w-2/5 rounded-full" />
-                                    </CardFooter>
                                 </Card>
                             )}
                         </div>

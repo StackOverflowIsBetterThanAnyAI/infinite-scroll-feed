@@ -45,8 +45,9 @@ const Quote = () => {
                         <p className="self-end px-4 py-1"> - unknown author</p>
                     </div>
                 ) : (
-                    <div className="flex flex-col gap-2">
-                        <Skeleton className="h-[18px] w-full rounded-full" />
+                    <div className="flex flex-col gap-4 lg:mt-1">
+                        <Skeleton className="h-[18px] w-4/5 m-auto rounded-full" />
+                        <Skeleton className="h-[18px] w-2/5 m-auto rounded-full" />
                         <Skeleton className="self-end h-[18px] w-32 rounded-full" />
                     </div>
                 )}
