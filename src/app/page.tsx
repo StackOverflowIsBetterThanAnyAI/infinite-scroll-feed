@@ -11,6 +11,7 @@ import { ContextQuote } from '@/context/ContextQuote'
 import { ContextTopTenPosts } from '@/context/ContextTopTenPosts'
 import { ContextTopUsers } from '@/context/ContextTopUsers'
 import { useFocusTrap } from '@/hooks/useFocusTrap'
+import { useScrollRestoration } from '@/hooks/useScrollRestoration'
 
 export default function Home() {
     const quoteRef = useRef<HTMLQuoteElement>(null)
@@ -18,6 +19,7 @@ export default function Home() {
     const topUsersRef = useRef<HTMLDivElement | null>(null)
 
     useFocusTrap()
+    useScrollRestoration()
 
     return (
         <div className="min-h-svh flex flex-col items-center justify-start bg-gradient-to-b from-stone-700 to-stone-800">
