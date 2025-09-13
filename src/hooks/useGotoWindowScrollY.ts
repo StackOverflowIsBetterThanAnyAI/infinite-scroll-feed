@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect } from 'react'
 import { getItemFromSessionStorage } from '@/utils/getItemFromSessionStorage'
 
