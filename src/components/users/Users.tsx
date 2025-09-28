@@ -1,10 +1,12 @@
 import { useCallback, useContext, useState } from 'react'
+import Link from 'next/link'
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion'
+import { Button } from '@/components/ui/button'
 import {
     Card,
     CardContent,
@@ -82,7 +84,12 @@ const Users = () => {
                                               <p>{item.company.bs}</p>
                                           </CardContent>
                                           <CardFooter>
-                                              {item.website}
+                                              <Button
+                                                  variant="link"
+                                                  size="link"
+                                              >
+                                                  {item.website}
+                                              </Button>
                                           </CardFooter>
                                       </Card>
                                   ))
@@ -154,11 +161,14 @@ const Users = () => {
                                                                 </p>
                                                             </CardDescription>
                                                             <CardFooter className="px-0">
-                                                                <p>
+                                                                <Button
+                                                                    variant="link"
+                                                                    size="link"
+                                                                >
                                                                     {
                                                                         item.website
                                                                     }
-                                                                </p>
+                                                                </Button>
                                                             </CardFooter>
                                                         </AccordionContent>
                                                     </AccordionItem>
