@@ -38,7 +38,7 @@ const Quote = () => {
 
     return (
         <section className="w-full max-w-7xl" ref={quoteRef}>
-            <blockquote className="flex flex-col gap-2 sm:gap-4 text-center text-pretty bg-stone-100 text-stone-950 p-3 sm:p-4 lg:p-6 my-6 lg:my-8">
+            <blockquote className="flex flex-col gap-2 sm:gap-4 text-center text-pretty bg-stone-100 text-stone-950 p-4 sm:p-8 lg:p-10 lg:px-12 my-6 lg:my-8">
                 <h2 className="self-start text-very-large font-semibold underline">
                     Quote of the Day
                 </h2>
