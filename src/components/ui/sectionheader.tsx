@@ -1,17 +1,12 @@
 type SectionHeaderProps = {
+    className?: string
     children: string
-    light?: boolean
 }
 
-export const SectionHeader = ({
-    children,
-    light = false,
-}: SectionHeaderProps) => {
+export const SectionHeader = ({ className, children }: SectionHeaderProps) => {
     return (
         <h2
-            className={`self-start text-very-large font-semibold underline ${
-                light ? 'text-zinc-50' : ''
-            }`}
+            className={`self-start text-very-large font-semibold underline ${className}`}
         >
             {children}
         </h2>

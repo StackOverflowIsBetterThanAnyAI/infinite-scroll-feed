@@ -62,7 +62,9 @@ const Users = () => {
         >
             <div className="w-full flex flex-col items-center">
                 <div className="w-full flex flex-col gap-0 sm:gap-4">
-                    <SectionHeader light>Most Active Users</SectionHeader>
+                    <SectionHeader className="text-zinc-50">
+                        Most Active Users
+                    </SectionHeader>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
                         <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {users.length > 0
