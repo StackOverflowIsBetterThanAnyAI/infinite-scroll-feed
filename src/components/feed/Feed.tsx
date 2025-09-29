@@ -19,6 +19,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from '@/components/ui/carousel'
+import { SectionHeader } from '@/components/ui/sectionheader'
 import { Skeleton } from '@/components/ui/skeleton'
 import { ContextContentLoaded } from '@/context/ContextContentLoaded'
 import { ContextTopTenPosts } from '@/context/ContextTopTenPosts'
@@ -70,9 +71,7 @@ const Feed = () => {
         >
             <div className="w-full flex flex-col items-center px-14 sm:px-16 py-6 bg-stone-400/60 rounded-lg shadow-md shadow-stone-500">
                 <div className="w-full flex flex-col gap-4 max-w-3xl">
-                    <h2 className="self-start text-very-large font-semibold underline">
-                        Top 10 Posts of the Week
-                    </h2>
+                    <SectionHeader>Top 10 Posts of the Week</SectionHeader>
                     <div className="w-full">
                         <Carousel>
                             <CarouselContent>
@@ -130,9 +129,7 @@ const Feed = () => {
             </div>
             {feedItems.length > 10 && (
                 <div className="flex flex-col gap-4 lg:gap-6">
-                    <h2 className="self-start text-very-large font-semibold underline px-4">
-                        More Hot Posts
-                    </h2>
+                    <SectionHeader>More Hot Posts</SectionHeader>
                     <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,448px),1fr))] grid-flow-row-dense w-full gap-4 lg:gap-6">
                         {feedItems.slice(10).map((item) => (
                             <Card key={item.id} className="gap-6">
