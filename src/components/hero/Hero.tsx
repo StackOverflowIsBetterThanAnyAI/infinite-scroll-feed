@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import heroLogo from '@/assets/hero_logo.webp'
 import { Button } from '@/components/ui/button'
 import { ContextTopUsers } from '@/context/ContextTopUsers'
-import heroLogo from '@/assets/hero_logo.webp'
 import { setWindowScrollTo } from '@/utils/setWindowScrollTo'
 
 const Hero = () => {
@@ -42,8 +42,34 @@ const Hero = () => {
                             >
                                 JSON Placeholder
                             </Link>
+                        </Button>{' '}
+                        and{' '}
+                        <Button asChild variant="link">
+                            <Link
+                                href="https://fakerjs.dev/api/company.html"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline text-normal"
+                                aria-label="Link to Faker (opens in a new tab)"
+                                title="Link to Faker (opens in a new tab)"
+                            >
+                                Faker
+                            </Link>
                         </Button>
-                        and using UI elements from the React component library
+                        , logos from
+                        <Button asChild variant="link">
+                            <Link
+                                href="https://logoipsum.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline text-normal"
+                                aria-label="Link to Logoipsum (opens in a new tab)"
+                                title="Link to Logoipsum (opens in a new tab)"
+                            >
+                                Logoipsum
+                            </Link>
+                        </Button>
+                        , and uses UI elements from the React component library
                         <Button asChild variant="link">
                             <Link
                                 href="https://ui.shadcn.com/"
