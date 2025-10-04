@@ -5,6 +5,7 @@ import Feed from '@/components/feed/Feed'
 import Footer from '@/components/footer/Footer'
 import Hero from '@/components/hero/Hero'
 import Navigation from '@/components/navigation/Navigation'
+import Partners from '@/components/partners/Partners'
 import Quote from '@/components/quote/Quote'
 import Users from '@/components/users/Users'
 import { ContextContentLoaded } from '@/context/ContextContentLoaded'
@@ -48,6 +49,7 @@ export default function Home() {
                             <Hero />
                             <Users />
                             <Quote />
+                            <Partners />
                             <Feed />
                             <Footer />
                         </ContextTopUsers.Provider>
