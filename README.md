@@ -1,8 +1,8 @@
 # Infinite Scroll Feed
 
-This web page was created using fake API data from JSONPlaceholder and UI structures from shadcn.
+This web page was created using fake API data from JSONPlaceholder and Faker, logos from Logoipsum and UI structures from shadcn.
 
-It resembles a landing page consisting of four differently designed zones, three of which processes data from this respective API.
+It resembles a landing page consisting of five differently designed zones, four of which processes data from these respective APIs.
 
 For faster data access, the data is stored in SessionStorage after initial loading to reduce waiting times when reloading.
 
