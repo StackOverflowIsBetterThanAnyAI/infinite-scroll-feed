@@ -92,6 +92,22 @@ html {
     }
 }
 
+@keyframes scrollpartner {
+    0% {
+        transform: translateX(2%);
+    }
+    50% {
+        transform: translateX(-98%);
+    }
+    100% {
+        transform: translateX(2%);
+    }
+}
+
+.animate-scroll {
+    animation: scrollpartner 30s ease-in-out infinite;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
