@@ -18,7 +18,7 @@ const Quote = () => {
 
     const contextQuote = useContext(ContextQuote)
     if (!contextQuote) {
-        throw new Error('Users must be used within a ContextQuote.Provider')
+        throw new Error('Quote must be used within a ContextQuote.Provider')
     }
     const quoteRef = contextQuote
 
