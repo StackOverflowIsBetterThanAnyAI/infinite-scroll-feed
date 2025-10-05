@@ -65,7 +65,7 @@ const Partners = () => {
             className="w-full max-w-7xl bg-stone-100 text-stone-950 my-6 lg:my-8 overflow-hidden"
             ref={partnersRef}
         >
-            <SectionHeader className="p-2 sm:p-3 lg:p-6">
+            <SectionHeader className="p-3 sm:p-4 lg:p-8">
                 Our Partners
             </SectionHeader>
             <div className="flex gap-6 lg:gap-10 pb-2 sm:pb-3 lg:pb-6 animate-scroll">
@@ -87,6 +87,7 @@ const Partners = () => {
                                         `Company ${index}`
                                     }
                                     className="object-contain h-full w-auto saturate-0"
+                                    loading="lazy"
                                 />
                             </div>
                         </div>

@@ -125,6 +125,7 @@ const Hero = () => {
                         alt="Infinite Scroll Feed Logo"
                         width={192}
                         height={192}
+                        loading="lazy"
                     />
                 </div>
             </div>
