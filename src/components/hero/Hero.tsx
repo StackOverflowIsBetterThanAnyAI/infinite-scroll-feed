@@ -24,7 +24,7 @@ const Hero = () => {
             </h1>
             <div className="flex justify-center gap-16 text-normal">
                 <div className="max-w-xl">
-                    <p className="pb-4 border-b-2 border-stone-400">
+                    <p className="pb-4 border-b-2 border-stone-400 leading-7 lg:leading-8">
                         This website serves as a{' '}
                         <strong className="font-mono px-0.5 text-large">
                             Landing Page
@@ -83,7 +83,7 @@ const Hero = () => {
                             </Link>
                         </Button>
                     </p>
-                    <p className="py-4 border-b-2 border-stone-400">
+                    <p className="py-4 border-b-2 border-stone-400 leading-7 lg:leading-8">
                         It makes use of the{' '}
                         <strong className="font-mono px-0.5 text-large">
                             /comments
