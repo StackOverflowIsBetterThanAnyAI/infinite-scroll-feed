@@ -1,7 +1,9 @@
 'use client'
 
 import Image from 'next/image'
+import { useState, useEffect, useContext } from 'react'
 import { faker } from '@faker-js/faker'
+
 import logoipsum0 from '@/assets/logoipsum0.webp'
 import logoipsum1 from '@/assets/logoipsum1.webp'
 import logoipsum2 from '@/assets/logoipsum2.webp'
@@ -19,9 +21,17 @@ import logoipsum13 from '@/assets/logoipsum13.webp'
 import logoipsum14 from '@/assets/logoipsum14.webp'
 import logoipsum15 from '@/assets/logoipsum15.webp'
 import { SectionHeader } from '@/components/ui/sectionheader'
-import { useState, useEffect } from 'react'
+import { ContextPartners } from '@/context/ContextPartners'
 
 const Partners = () => {
+    const contextPartners = useContext(ContextPartners)
+    if (!contextPartners) {
+        throw new Error(
+            'Partners must be used within a ContextPartners.Provider'
+        )
+    }
+    const partnersRef = contextPartners
+
     const images = [
         logoipsum0,
         logoipsum1,
@@ -51,7 +61,10 @@ const Partners = () => {
     }, [images.length])
 
     return (
-        <section className="w-full max-w-7xl bg-stone-100 text-stone-950 my-6 lg:my-8 overflow-hidden">
+        <section
+            className="w-full max-w-7xl bg-stone-100 text-stone-950 my-6 lg:my-8 overflow-hidden"
+            ref={partnersRef}
+        >
             <SectionHeader className="p-2 sm:p-3 lg:p-6">
                 Our Partners
             </SectionHeader>

@@ -9,6 +9,7 @@ import Partners from '@/components/partners/Partners'
 import Quote from '@/components/quote/Quote'
 import Users from '@/components/users/Users'
 import { ContextContentLoaded } from '@/context/ContextContentLoaded'
+import { ContextPartners } from '@/context/ContextPartners'
 import { ContextQuote } from '@/context/ContextQuote'
 import { ContextTopTenPosts } from '@/context/ContextTopTenPosts'
 import { ContextTopUsers } from '@/context/ContextTopUsers'
@@ -28,7 +29,8 @@ export default function Home() {
         users: false,
     })
 
-    const quoteRef = useRef<HTMLQuoteElement>(null)
+    const partnersRef = useRef<HTMLDivElement | null>(null)
+    const quoteRef = useRef<HTMLQuoteElement | null>(null)
     const topTenPostsRef = useRef<HTMLDivElement | null>(null)
     const topUsersRef = useRef<HTMLDivElement | null>(null)
 
@@ -42,19 +44,21 @@ export default function Home() {
             <ContextContentLoaded.Provider
                 value={[contentLoaded, setContentLoaded]}
             >
-                <ContextQuote.Provider value={quoteRef}>
-                    <ContextTopTenPosts.Provider value={topTenPostsRef}>
-                        <ContextTopUsers.Provider value={topUsersRef}>
-                            <Navigation />
-                            <Hero />
-                            <Users />
-                            <Quote />
-                            <Partners />
-                            <Feed />
-                            <Footer />
-                        </ContextTopUsers.Provider>
-                    </ContextTopTenPosts.Provider>
-                </ContextQuote.Provider>
+                <ContextPartners.Provider value={partnersRef}>
+                    <ContextQuote.Provider value={quoteRef}>
+                        <ContextTopTenPosts.Provider value={topTenPostsRef}>
+                            <ContextTopUsers.Provider value={topUsersRef}>
+                                <Navigation />
+                                <Hero />
+                                <Users />
+                                <Quote />
+                                <Partners />
+                                <Feed />
+                                <Footer />
+                            </ContextTopUsers.Provider>
+                        </ContextTopTenPosts.Provider>
+                    </ContextQuote.Provider>
+                </ContextPartners.Provider>
             </ContextContentLoaded.Provider>
         </div>
     )
