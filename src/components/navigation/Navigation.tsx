@@ -54,11 +54,11 @@ const Navigation = () => {
     useNavigationOpacity({ setNavOpacity, timerRef })
 
     const handleScrollToPartners = () => {
-        setWindowScrollTo(SCREEN_WIDTH === 'DESKTOP' ? 48 : 168, partnersRef)
+        setWindowScrollTo(SCREEN_WIDTH === 'DESKTOP' ? 72 : 168, partnersRef)
     }
 
     const handleScrollToQuote = () => {
-        setWindowScrollTo(SCREEN_WIDTH === 'DESKTOP' ? 72 : 144, quoteRef)
+        setWindowScrollTo(SCREEN_WIDTH === 'DESKTOP' ? 48 : 144, quoteRef)
     }
 
     const handleScrollToTopUsers = () => {
