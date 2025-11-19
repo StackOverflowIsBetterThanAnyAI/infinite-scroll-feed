@@ -160,7 +160,6 @@ const Feed = () => {
             <Button asChild variant="outline" className="px-4">
                 <button
                     className="text-large"
-                    aria-label="Load more Posts"
                     title="Load more Posts"
                     onClick={loadMoreItems}
                 >
