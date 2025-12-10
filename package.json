@@ -1,39 +1,39 @@
 {
-  "name": "infinite-scroll-feed",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "@faker-js/faker": "^10.0.0",
-    "@radix-ui/react-accordion": "^1.2.12",
-    "@radix-ui/react-slot": "^1.2.3",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "embla-carousel-react": "^8.6.0",
-    "fetch-loading": "^0.0.7",
-    "lucide-react": "^0.544.0",
-    "next": "15.5.7",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "tailwind-merge": "^3.3.1"
-  },
-  "prettier": "prettier-es5",
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.5.4",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "prettier-es5": "^0.0.4",
-    "tailwindcss": "^4",
-    "typescript": "^5"
-  }
+    "name": "infinite-scroll-feed",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build --turbopack",
+        "start": "next start",
+        "lint": "eslint"
+    },
+    "dependencies": {
+        "@faker-js/faker": "^10.1.0",
+        "@radix-ui/react-accordion": "^1.2.12",
+        "@radix-ui/react-slot": "^1.2.3",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "embla-carousel-react": "^8.6.0",
+        "fetch-loading": "^0.0.8",
+        "lucide-react": "^0.544.0",
+        "next": "15.5.7",
+        "react": "19.2.0",
+        "react-dom": "19.2.0",
+        "tailwind-merge": "^3.3.1"
+    },
+    "prettier": "prettier-es5",
+    "devDependencies": {
+        "@eslint/eslintrc": "^3",
+        "@tailwindcss/postcss": "^4.1.17",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "15.5.4",
+        "eslint-plugin-react-hooks": "^5.2.0",
+        "prettier-es5": "^0.0.4",
+        "tailwindcss": "^4",
+        "typescript": "^5.9.3"
+    }
 }
